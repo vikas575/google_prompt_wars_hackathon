@@ -1,0 +1,173 @@
+/* ============================================================
+   tokens.css — VenueFlow Design System: Tokens + Animations
+   ============================================================ */
+
+:root {
+  --background:               #0f1222;
+  --surface-container-lowest: #0a0d1c;
+  --surface-container-low:    #181b2a;
+  --surface-container:        #1c1f2f;
+  --surface-container-high:   #262939;
+  --surface-container-highest:#313445;
+  --surface-variant:          #313445;
+
+  --primary:           #adc6ff;
+  --primary-container: #4d8efe;
+  --on-primary:        #002e69;
+
+  --secondary:           #a2e7ff;
+  --secondary-container: #00d2fd;
+
+  --tertiary:           #fbbc05;
+
+  --on-surface:         #e0e1f7;
+  --on-surface-variant: #c2c6d5;
+
+  --outline:         #8c909f;
+  --outline-variant: #424753;
+
+  --error:           #ffb4ab;
+  --error-container: #93000a;
+
+  --color-green:  #4ade80;
+  --color-red:    #ff6b6b;
+
+  --navbar-height:  64px;
+  --sidebar-width:  256px;
+  --footer-height:  32px;
+
+  --font-main: 'Manrope', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--background);
+  color: var(--on-surface);
+  font-variant-numeric: tabular-nums;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Material Symbols base ─────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 200, 'opsz' 24;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  user-select: none;
+}
+
+/* ── Utility classes ───────────────────────────────────────── */
+.glass-card {
+  background: rgba(24, 27, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.data-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--on-surface-variant);
+}
+
+/* ── Badges ────────────────────────────────────────────────── */
+.badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 100px;
+  display: inline-block;
+}
+.badge-realtime {
+  background: rgba(74,222,128,0.12);
+  color: var(--color-green);
+  border: 0.5px solid rgba(74,222,128,0.3);
+}
+.badge-gold {
+  background: rgba(251,188,5,0.12);
+  color: var(--tertiary);
+  border: 0.5px solid rgba(251,188,5,0.3);
+}
+.badge-live {
+  background: rgba(255,107,107,0.14);
+  color: var(--color-red);
+  border: 0.5px solid rgba(255,107,107,0.3);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────── */
+@keyframes pulseGreen {
+  0%,100% { opacity:1; }
+  50%      { opacity:0.35; }
+}
+@keyframes pulseRed {
+  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(255,107,107,0.5); }
+  50%     { opacity:0.75; box-shadow:0 0 0 6px rgba(255,107,107,0); }
+}
+@keyframes pulseGold {
+  0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(251,188,5,0.5); }
+  50%     { opacity:0.8; box-shadow:0 0 0 5px rgba(251,188,5,0); }
+}
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes slideInRight {
+  from { transform:translateX(100%); }
+  to   { transform:translateX(0); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -14; }
+}
+@keyframes barGrow {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to   { transform: scaleY(1); transform-origin: bottom; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes numberPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.35s ease forwards;
+}
+.pulse-green-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--color-green);
+  animation: pulseGreen 2s ease-in-out infinite;
+}
+.pulse-red-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--color-red);
+  animation: pulseRed 1.6s ease-in-out infinite;
+}
+.pulse-gold-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--tertiary);
+  animation: pulseGold 2s ease-in-out infinite;
+}
